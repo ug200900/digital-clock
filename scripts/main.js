@@ -5,7 +5,7 @@ function displayTime() {
 	h = d.getHours();
 	m = d.getMinutes();
 	s = d.getSeconds();
-	colorH = ["blue", "red", "black", "brown", "green"]
+	colorH = ["white", "lightblue", "green"]
 	
 	//add zero to the left of the numbers if they are single digits
 	if(h <= 9) h = '0'+h;
@@ -22,8 +22,8 @@ function displayTime() {
 		color = '#'+Math.floor(Math.random()*16777215).toString(16);
 	}
 
-	if (h % 1 === 0){
-		document.getElementById('x').style.color = colorH[h/2];
+	if (m % 1 === 0){
+		document.getElementById('x').style.color = colorH[Math.floor(Math.random()*colorH.length)];
 	}
 	
 	//set background color
