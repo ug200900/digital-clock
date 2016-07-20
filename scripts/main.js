@@ -1,10 +1,11 @@
 //lets display the current time
-var d, h, m, s, color, time;
+var d, h, m, s, color, time, colorH;
 function displayTime() {
 	d = new Date(); //new data object
 	h = d.getHours();
 	m = d.getMinutes();
 	s = d.getSeconds();
+	colorH = ["blue", "red", "black", "brown", "green"]
 	
 	//add zero to the left of the numbers if they are single digits
 	if(h <= 9) h = '0'+h;
@@ -17,11 +18,19 @@ function displayTime() {
 		color = "black";
 	}
 
+	if (m % 5 ===0){
+		color = '#'+Math.floor(Math.random()*16777215).toString(16);
+	}
+
+	if (h % 1 === 0){
+		document.getElementById('x').style.color = colorH[h/2];
+	}
 	
 	//set background color
 	document.body.style.background=color;
 	//set time
 	document.getElementById("x").innerText = h + " " + m + " " + s
+	document.getElementById('x').style.color = colorH[h/2];
 	
 	
 	//retrigger the function every second
